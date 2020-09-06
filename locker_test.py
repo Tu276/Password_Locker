@@ -58,7 +58,7 @@ class TestUser(unittest.TestCase):
         test_user.save_user()
         self.new_user.delete_user() #del user
 
-        sel.assertEqual(len(User.user_List),1)
+        self.assertEqual(len(User.user_List),1)
 
     
 
@@ -88,38 +88,52 @@ class TestCredentials(unittest.TestCase):
         '''
         Set up method to run before each test cases.
         '''
-        self.new_crendentials = Credentials("facebook","tu276","nathan") # create credentials object
+        self.new_credentials = Credentials("facebook","tu276","nathan") # create credentials object
         '''
         test_init test case to test if the object is initialized properly
         '''
         
-        self.assertEqual(self.new_crendentials.account_name,"facebook")
-        self.assertEqual(self.new_crendentials.account_username,"tu276")
-        self.assertEqual(self.new_crendentials.account_password,"nathan")
+        self.assertEqual(self.new_credentials.account_name,"facebook")
+        self.assertEqual(self.new_credentials.account_username,"tu276")
+        self.assertEqual(self.new_credentials.account_password,"nathan")
 
     def test_save_credentials(self):
         '''
         test case to see if user ogject is saved into 
 
         '''
-        self.new_crendentials.save_credentials() #save user
+        self.new_credentials.save_credentials() #save user
         self.assertEqual(len(Credentials.credentials_List),1)
 
     def test_save_multiple_credentials(self):
         
-        self.new_crendentials.save_credentials()
-        test_credentials = Credentials("test","testusername","testpassword")# new cerdentials 
+        self.new_credentials.save_credentials()
+        test_credentials = Credentials("test","testusername","testpassword")
 
-        test_credentials.save_credentials()
+        test_credentials.save_credentials() # new credentilas
         self.assertEqual(len(Credentials.credentials_List),2)
 
     def test_delete_credentials(self):
          
-         self.new_creddentials.save_credentials()
-         test_credentials = Credentials("test","testusername","testpassword") #del credentilas
+        self.new_credentials.save_credentials()
+        test_credentials = Credentials("test","testusername","testpassword") 
 
-         test_credentials.delete_credentilas()
-         self.assertEqual(len(Credentials.delete_credentials))
+        test_credentials.save_credentials()
+
+        self.new_credentials.delete_credentials()#del credentils
+        self.assertEqual(len(Credentials.credentials_List),1)
+
+    def find_credentials_by_account_name(self):
+        
+        self.new_credentials.save_credentials()
+
+        test_credentials = Credentials("test","testusername","testpassword")
+        test_credentials.save_credentials
+
+        found_credentials = Credentials.find_by_account_name("test")
+
+        self.assertEqual(found_credentials.testusername,test_credentials.testusername)
+
 
 
 if __name__ == '__main__':
