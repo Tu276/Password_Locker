@@ -43,3 +43,7 @@ class Credentials:
     def save_credentials(self):
 
         Credentials.credentials_List.append(self)
+
+    def delete_credentials(self):
+         
+         Credentials.credentials_List.remove(self)
