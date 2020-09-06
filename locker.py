@@ -1,4 +1,4 @@
-class user:
+class User:
     """
     class that generates new users
     """
@@ -13,7 +13,7 @@ class user:
         self.user_password = user_password
 
 
-class credentials:
+class Credentials:
     """
     class that generates new credentials 
     """
