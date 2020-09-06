@@ -29,6 +29,14 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.new_user.login_username,"tu276")
         self.assertEqual(self.new_user.user_password,"nathan")
 
+    def test_save_user(self):
+        '''
+        test case to see if user ogject is saved into 
+
+        '''
+        self.new_user.save_user() #save user
+        self.assertEqual(len(User.user_List),1)
+
 if __name__ == '__main__':
     unittest.main()
 
@@ -55,6 +63,14 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(self.new_crendentials.account_name,"facebook")
         self.assertEqual(self.new_crendentials.account_username,"tu276")
         self.assertEqual(self.new_crendentials.account_password,"nathan")
+
+    def test_save_credentials(self):
+        '''
+        test case to see if user ogject is saved into 
+
+        '''
+        self.new_crendentials.save_credentials() #save user
+        self.assertEqual(len(Credentials.credentials_List),1)
 
 
 
