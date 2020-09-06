@@ -12,6 +12,11 @@ class TestUser(unittest.TestCase):
      unittest.TestCase: TestCase class that helps in creating test cases
 
     '''
+    def tearDown(self):
+        '''
+        tear down method that cleans up after each test case is run
+        '''
+        User.user_List = []
 
     def setUp(self):
         '''
@@ -38,10 +43,17 @@ class TestUser(unittest.TestCase):
         self.assertEqual(len(User.user_List),1)
 
     def test_save_multiple_user(self):
+
         self.new_user.save_user()
         test_user = User("Test_user","password")#new user
+
         test_user.save_user()
         self.assertEqual(len(User.user_List),2)
+
+    
+
+    
+        
 
 # if __name__ == '__main__':#######################################################
 #     unittest.main()####################################3
@@ -57,6 +69,11 @@ class TestCredentials(unittest.TestCase):
 
     '''
 
+    def tearDown(self):
+        
+        Credentials.credentials_List = []
+
+        
     def setUp(self):
         '''
         Set up method to run before each test cases.
