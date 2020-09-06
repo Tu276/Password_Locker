@@ -13,7 +13,17 @@ class TestUser(unittest.TestCase):
 
     '''
 
+    def setUp(self):
+        
+        self.new_user = User("tu276","nathan") #create user object
 
+    def test_init(self):
+        
+        self.assertEqual(self.new_user.login_username,"tu276")
+        self.assertEqual(self.new_user.user_password,"nathan")
+
+if __name__ == '__main__':
+    unittest.main()
 
 class TestCredentials(unittest.TestCase):
     '''
