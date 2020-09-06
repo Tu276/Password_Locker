@@ -37,8 +37,14 @@ class TestUser(unittest.TestCase):
         self.new_user.save_user() #save user
         self.assertEqual(len(User.user_List),1)
 
-# if __name__ == '__main__':
-#     unittest.main()
+    def test_save_multiple_user(self):
+        self.new_user.save_user()
+        test_user = User("Test_user","password")#new user
+        test_user.save_user()
+        self.assertEqual(len(User.user_List),2)
+
+# if __name__ == '__main__':#######################################################
+#     unittest.main()####################################3
 
 class TestCredentials(unittest.TestCase):
     '''
