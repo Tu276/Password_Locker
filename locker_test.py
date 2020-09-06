@@ -146,6 +146,12 @@ class TestCredentials(unittest.TestCase):
         credentials_exists = Credentials.credentials_exist("test")
         
         self.assertTrue(credentials_exists)
+
+    def test_display_all_credentials(self):
+        '''
+        meothod that returns list of saved credentials
+        ''' 
+        self.assertEqual(Credentials.display_credentials(),Credentials.credentials_List)
         
 
 
