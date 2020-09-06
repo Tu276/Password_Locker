@@ -14,11 +14,18 @@ class TestUser(unittest.TestCase):
     '''
 
     def setUp(self):
+        '''
+        Set up method to run before each test cases.
+        '''
         
         self.new_user = User("tu276","nathan") #create user object
 
     def test_init(self):
-        
+         
+        '''
+        test_init test case to test if the object is initialized properly
+        '''
+
         self.assertEqual(self.new_user.login_username,"tu276")
         self.assertEqual(self.new_user.user_password,"nathan")
 
@@ -35,3 +42,21 @@ class TestCredentials(unittest.TestCase):
      unittest.TestCase: TestCase class that helps in creating test cases
 
     '''
+
+    def setUp(self):
+        '''
+        Set up method to run before each test cases.
+        '''
+        self.new_crendentials = Credentials("facebook","tu276","nathan") # create credentials object
+        '''
+        test_init test case to test if the object is initialized properly
+        '''
+        
+        self.assertEqual(self.new_crendentials.account_name,"facebook")
+        self.assertEqual(self.new_crendentials.account_username,"tu276")
+        self.assertEqual(self.new_crendentials.account_password,"nathan")
+
+
+
+if __name__ == '__main__':
+    unittest.main()
