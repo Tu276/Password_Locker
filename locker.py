@@ -1,3 +1,6 @@
+
+
+
 class User:
     """
     class that generates new users

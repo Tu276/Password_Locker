@@ -1,4 +1,5 @@
 import unittest
+import pyperclip
 from locker import User
 from locker import Credentials
 
@@ -154,6 +155,12 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(Credentials.display_credentials(),Credentials.credentials_List)
         
 
+    def test_copy_account_username(self):
 
+        self.new_credentials.save_credentials()
+        Credentials.copy_account_username("test")
+
+        self.assertEqual(self.new_credentials.account_username,pyperclip.paste)
+        
 if __name__ == '__main__':
     unittest.main()
