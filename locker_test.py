@@ -50,6 +50,16 @@ class TestUser(unittest.TestCase):
         test_user.save_user()
         self.assertEqual(len(User.user_List),2)
 
+    def test_delete_user(self):
+
+        self.new_user.save_user()
+        test_user = User("Test_user","password")
+
+        test_user.save_user()
+        self.new_user.delete_user() #del user
+
+        sel.assertEqual(len(User.user_List),1)
+
     
 
     
@@ -73,7 +83,7 @@ class TestCredentials(unittest.TestCase):
         
         Credentials.credentials_List = []
 
-        
+
     def setUp(self):
         '''
         Set up method to run before each test cases.
@@ -102,6 +112,14 @@ class TestCredentials(unittest.TestCase):
 
         test_credentials.save_credentials()
         self.assertEqual(len(Credentials.credentials_List),2)
+
+    def test_delete_credentials(self):
+         
+         self.new_creddentials.save_credentials()
+         test_credentials = Credentials("test","testusername","testpassword") #del credentilas
+
+         test_credentials.delete_credentilas()
+         self.assertEqual(len(Credentials.delete_credentials))
 
 
 if __name__ == '__main__':
