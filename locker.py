@@ -1,5 +1,6 @@
 import pyperclip
-
+import random
+import string
 
 class User:
     """
@@ -25,7 +26,21 @@ class User:
         '''
 
         User.user_List.remove(self)
-           
+
+    @classmethod
+    def user_exist(cls,login_username):
+        '''
+        methods checks if credentials exist
+        
+        returns:
+        boolean depending whether the contact exists or not
+        '''
+
+        for users in cls.user_List:
+            if users.login_username == login_username:
+                return True
+
+        return False     
         
 
 class Credentials:
@@ -50,6 +65,14 @@ class Credentials:
     def delete_credentials(self):
          
         Credentials.credentials_List.remove(self)
+
+   
+    # def generate_password(size=8, char=string.ascii_uppercase+string.ascii_lowercase+string.digits):
+	# 	'''
+	# 	Function to generate an 8 character password for a credential
+	# 	'''
+	# 	gen_pass=''.join(random.choice(char) for _ in range(size))
+	# 	return gen_pass
 
     @classmethod
     def find_by_account_name(cls,account_name):

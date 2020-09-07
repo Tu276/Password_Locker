@@ -61,6 +61,17 @@ class TestUser(unittest.TestCase):
 
         self.assertEqual(len(User.user_List),1)
 
+    def test_users_exists(self):
+        '''
+        returns boolean if users not found test
+        '''
+        self.new_user.save_user()
+        test_user  = User("test_user","password",)
+
+        test_user.save_user()
+        user_exists = User.user_exist("test")
+        
+        self.assertTrue(user_exists)
     
 
     
@@ -161,6 +172,6 @@ class TestCredentials(unittest.TestCase):
         Credentials.copy_account_username("test")
 
         self.assertEqual(self.new_credentials.account_username,pyperclip.paste)
-        
+
 if __name__ == '__main__':
     unittest.main()
