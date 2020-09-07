@@ -13,7 +13,7 @@ Password Locker is a terminal run app that allows users to store credentials use
 As a user I would like:
 * To create an account with my details - log in and password
 * Store my existing login credentials
-@@ -17,14 +17,14 @@ As a user I would like:
+
 ## Specifications
 | Behaviour | Input | Output |
 | :---------------- | :---------------: | ------------------: |
@@ -36,9 +36,10 @@ As a user I would like:
 
 ## SetUp / Installation Requirements
 ### Prerequisites
-@@ -45,7 +45,11 @@ As a user I would like:
-        $ chmod +x Password_Locker.py
-        $ ./run.py
+what you need:
+    * python3.8
+    * $ chmod +x Password_Locker.py
+    * $ ./run.py
 
 ## Testing the Application
 * To run the tests for the class file:
